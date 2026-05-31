@@ -21,7 +21,7 @@ export default function SocialCTA() {
             </div>
           </div>
           <p className="text-zinc-500 text-sm leading-relaxed mb-5">
-            Race recaps, community moments, and behind-the-scenes from every event. Join the feed.
+            Look back on Timmy&apos;s wise words & adventures - and follow along with our recent activity!
           </p>
           <div className="flex items-center gap-2 text-zinc-400 text-xs font-bold tracking-wide uppercase group-hover:text-zinc-700 transition-colors">
             Follow

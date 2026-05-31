@@ -1,6 +1,5 @@
 import fs from "fs";
 import path from "path";
-import Link from "next/link";
 import HeroMarquee from "./HeroMarquee";
 
 const SLIDESHOW_DIR = path.join(process.cwd(), "public", "photos", "slideshow");
@@ -27,7 +26,7 @@ export default function Hero() {
   const images = getSlideshowImages();
 
   return (
-    <section className="pt-28">
+    <section className="pt-20 sm:pt-28">
       <HeroMarquee images={images} />
 
       {/* ── Motto + Mission text ── */}
@@ -38,15 +37,9 @@ export default function Hero() {
             Enjoy the View.
           </span>
         </h1>
-        <p className="text-zinc-500 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed mb-10">
+        <p className="text-zinc-500 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
           Galavant Multisport exists to inspire movement, and appreciate nature&apos;s beauty every day.
         </p>
-        <Link
-          href="/get-involved"
-          className="inline-block bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold px-8 py-4 rounded text-sm tracking-wide transition-colors"
-        >
-          Get Involved
-        </Link>
       </div>
     </section>
   );

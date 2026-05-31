@@ -1,36 +1,49 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+const NAV_LINKS = [
+  { name: "Home", href: "/" },
+  { name: "Mission", href: "/mission" },
+  { name: "Impact", href: "/impact" },
+  { name: "Events", href: "/events" },
+  { name: "Shop", href: "/shop" },
+];
+
 export default function Navbar() {
+  const [open, setOpen] = useState(false);
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-zinc-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-28">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-20 sm:h-28">
         {/* Logo */}
-        <Link href="/" className="shrink-0">
+        <Link href="/" onClick={() => setOpen(false)} className="shrink-0">
           <Image
-            src="/Galavant Logo Transparent.png"
+            src="/galavant-logo.png"
             alt="Galavant Multisport"
-            width={340}
-            height={119}
+            width={600}
+            height={230}
             priority
-            className="object-contain"
+            className="object-contain h-14 sm:h-20 lg:h-24 w-auto"
           />
         </Link>
 
-        {/* Nav links — desktop */}
+        {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-6 lg:gap-8">
-          {["Mission", "Events", "Causes", "Shop", "Get Involved"].map((link) => (
+          {NAV_LINKS.map((link) => (
             <Link
-              key={link}
-              href={`/${link.toLowerCase().replace(/\s+/g, "-")}`}
-              className="text-zinc-900 text-sm font-medium tracking-wide hover:text-[#2563eb] transition-colors whitespace-nowrap"
+              key={link.name}
+              href={link.href}
+              className="text-zinc-900 text-sm font-medium tracking-wide hover:text-[#2563eb] transition-colors"
             >
-              {link}
+              {link.name}
             </Link>
           ))}
           <Link
             href="/donate"
-            className="bg-[#dc2626] hover:bg-[#b91c1c] text-white text-sm font-bold px-5 py-2 rounded transition-colors tracking-wide whitespace-nowrap"
+            className="bg-[#dc2626] hover:bg-[#b91c1c] text-white text-sm font-bold px-5 py-2 rounded transition-colors tracking-wide"
           >
             Donate
           </Link>
@@ -44,13 +57,50 @@ export default function Navbar() {
           >
             Donate
           </Link>
-          <button className="flex flex-col gap-1.5 p-2" aria-label="Open menu">
-            <span className="block w-6 h-0.5 bg-zinc-800" />
-            <span className="block w-6 h-0.5 bg-zinc-800" />
-            <span className="block w-6 h-0.5 bg-zinc-800" />
+          <button
+            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? "Close menu" : "Open menu"}
+            className="p-2"
+          >
+            {open ? (
+              <svg className="w-6 h-6 text-zinc-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="w-6 h-6 text-zinc-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
           </button>
         </div>
       </div>
+
+      {/* Mobile menu drawer */}
+      {open && (
+        <div className="md:hidden border-t border-zinc-100 bg-white">
+          <div className="flex flex-col px-4 py-3 gap-0.5">
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className="text-zinc-900 text-base font-medium py-3.5 px-2 border-b border-zinc-50 hover:text-[#2563eb] transition-colors"
+              >
+                {link.name}
+              </Link>
+            ))}
+            <div className="pt-4 pb-3">
+              <Link
+                href="/donate"
+                onClick={() => setOpen(false)}
+                className="block w-full text-center bg-[#dc2626] hover:bg-[#b91c1c] text-white font-bold px-5 py-3.5 rounded text-sm tracking-wide transition-colors"
+              >
+                Donate
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
     </nav>
   );
 }
