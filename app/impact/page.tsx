@@ -66,7 +66,7 @@ export default function ImpactPage() {
               Featured
             </p>
             <h2 className="text-zinc-900 text-3xl sm:text-4xl font-black leading-tight mb-12 text-center">
-              Featured Causes
+              Supported Programs & Organizations
             </h2>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               {FEATURED.map((org, i) => {
