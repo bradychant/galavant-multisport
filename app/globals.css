@@ -23,6 +23,13 @@ body {
   to   { transform: translateX(-50%); }
 }
 
+.marquee-container {
+  /* Let vertical scroll pass through without iOS capturing the touch on the
+     marquee, and kill the tap-highlight that comes with touch interaction. */
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+
 .marquee-track {
   animation: marquee-scroll 40s linear infinite;
   /* Hint the browser to put the track on its own GPU layer — keeps the
@@ -30,10 +37,24 @@ body {
   will-change: transform;
 }
 
+/* Marquee images are decorative — keep them out of the touch hit-test so
+   tapping the slideshow doesn't pause the animation on mobile. */
+.marquee-track img {
+  pointer-events: none;
+}
+
 /* Only pause on actual hover (desktop). On touch devices a tap counts as
    hover, which would freeze the marquee until the user tapped elsewhere. */
 @media (hover: hover) {
   .marquee-container:hover .marquee-track {
     animation-play-state: paused;
+  }
+}
+
+/* On touch devices, force the animation to keep running so iOS Safari
+   can't freeze it on tap, scroll-momentum, or focus. */
+@media (hover: none) {
+  .marquee-track {
+    animation-play-state: running !important;
   }
 }

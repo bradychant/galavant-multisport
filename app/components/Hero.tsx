@@ -12,7 +12,7 @@ const SUPPORTED_EXTENSIONS = new Set([".jpg", ".jpeg", ".png", ".webp", ".avif"]
  */
 // Specific files we want shown at the front / end of the marquee.
 // Anything not listed falls into the middle in alphabetical order.
-const PUSH_TO_FRONT = ["IMG_1759.jpeg"];
+const PUSH_TO_FRONT: string[] = [];
 const PUSH_TO_END = ["IMG_0871.jpeg"];
 
 function getSlideshowImages(): string[] {
