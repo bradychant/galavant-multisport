@@ -10,8 +10,9 @@ const SUPPORTED_EXTENSIONS = new Set([".jpg", ".jpeg", ".png", ".webp", ".avif"]
  * Just drop image files into /public/photos/slideshow/
  * Supported formats: jpg, jpeg, png, webp, avif
  */
-// Specific files we want shown at the end of the marquee, in this order.
-// (Penguin Plunge photo plays later instead of opening the slideshow.)
+// Specific files we want shown at the front / end of the marquee.
+// Anything not listed falls into the middle in alphabetical order.
+const PUSH_TO_FRONT = ["IMG_1759.jpeg"];
 const PUSH_TO_END = ["IMG_0871.jpeg"];
 
 function getSlideshowImages(): string[] {
@@ -21,10 +22,13 @@ function getSlideshowImages(): string[] {
       .filter((f) => SUPPORTED_EXTENSIONS.has(path.extname(f).toLowerCase()))
       .sort();
 
-    const head = files.filter((f) => !PUSH_TO_END.includes(f));
-    const tail = PUSH_TO_END.filter((f) => files.includes(f));
+    const front = PUSH_TO_FRONT.filter((f) => files.includes(f));
+    const back = PUSH_TO_END.filter((f) => files.includes(f));
+    const middle = files.filter(
+      (f) => !PUSH_TO_FRONT.includes(f) && !PUSH_TO_END.includes(f)
+    );
 
-    return [...head, ...tail].map((f) => `/photos/slideshow/${f}`);
+    return [...front, ...middle, ...back].map((f) => `/photos/slideshow/${f}`);
   } catch {
     return [];
   }
