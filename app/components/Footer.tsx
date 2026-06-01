@@ -1,3 +1,5 @@
+import { GIVEBUTTER_URL } from "../constants";
+
 export default function Footer() {
   const year = new Date().getFullYear();
 
@@ -37,7 +39,9 @@ export default function Footer() {
             </a>
             <span className="text-zinc-200">·</span>
             <a
-              href="/donate"
+              href={GIVEBUTTER_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-[#dc2626] hover:text-[#b91c1c] transition-colors font-bold tracking-wide"
             >
               Donate

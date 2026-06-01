@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
@@ -20,6 +21,11 @@ const FEATURED = [
       "A hiking program Timmy started in Westwood, MA. Each June, The Summit Squad brings a group of seniors on a hiking trip in New England.",
     href: null,
   },
+  {
+    name: "F.O.R.E.S.T. Program",
+    description: "More information coming soon.",
+    href: null,
+  },
 ];
 
 export default function ImpactPage() {
@@ -39,7 +45,7 @@ export default function ImpactPage() {
           </h1>
         </div>
 
-        {/* Featured */}
+        {/* Featured Causes */}
         <section className="bg-white px-6 py-20 sm:py-24">
           <div className="max-w-5xl mx-auto">
             <p className="text-[#2563eb] text-xs font-bold tracking-[0.4em] uppercase mb-4 text-center">
@@ -48,7 +54,7 @@ export default function ImpactPage() {
             <h2 className="text-zinc-900 text-3xl sm:text-4xl font-black leading-tight mb-12 text-center">
               Featured Causes
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               {FEATURED.map((org, i) => {
                 const body = (
                   <>
@@ -99,6 +105,45 @@ export default function ImpactPage() {
                 );
               })}
             </div>
+          </div>
+        </section>
+
+        {/* Memorial Scholarship */}
+        <section className="bg-zinc-50 border-t border-zinc-100 px-6 py-20 sm:py-24">
+          <div className="max-w-3xl mx-auto">
+            {/* Image */}
+            <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden mb-12 bg-zinc-200">
+              <Image
+                src="/photos/slideshow/IMG_0897.jpeg"
+                alt="Timothy J. Chant"
+                fill
+                sizes="(min-width: 768px) 768px, 100vw"
+                className="object-cover"
+              />
+            </div>
+
+            {/* Eyebrow + heading */}
+            <p className="text-[#dc2626] text-xs font-bold tracking-[0.4em] uppercase mb-4 text-center">
+              Memorial Scholarship
+            </p>
+            <h2 className="text-zinc-900 text-3xl sm:text-4xl font-black leading-tight mb-10 text-center">
+              Timothy J. Chant Memorial Scholarship
+            </h2>
+
+            {/* Body — verbatim copy provided */}
+            <p className="text-zinc-700 text-base sm:text-lg leading-relaxed mb-6">
+              The Timothy J. Chant Memorial Scholarship honors the life and
+              spirit of Tim Chant by recognizing a graduating student from
+              Westwood High School who demonstrates a strong commitment to
+              their education & community.
+            </p>
+            <p className="text-zinc-700 text-base sm:text-lg leading-relaxed">
+              This scholarship is awarded to a student who embodies Tim&apos;s
+              spirit and not only participates in, but actively promotes a
+              positive approach to physical and mental well-being within the
+              school environment—particularly through physical education,
+              health classes, athletics, or related activities.
+            </p>
           </div>
         </section>
       </main>

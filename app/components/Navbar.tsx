@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { GIVEBUTTER_URL } from "../constants";
 
 const NAV_LINKS = [
   { name: "Home", href: "/" },
@@ -41,22 +42,26 @@ export default function Navbar() {
               {link.name}
             </Link>
           ))}
-          <Link
-            href="/donate"
+          <a
+            href={GIVEBUTTER_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-[#dc2626] hover:bg-[#b91c1c] text-white text-sm font-bold px-5 py-2 rounded transition-colors tracking-wide"
           >
             Donate
-          </Link>
+          </a>
         </div>
 
         {/* Mobile: Donate + hamburger */}
         <div className="md:hidden flex items-center gap-3">
-          <Link
-            href="/donate"
+          <a
+            href={GIVEBUTTER_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-[#dc2626] text-white text-xs font-bold px-4 py-2 rounded tracking-wide"
           >
             Donate
-          </Link>
+          </a>
           <button
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Close menu" : "Open menu"}
@@ -90,13 +95,15 @@ export default function Navbar() {
               </Link>
             ))}
             <div className="pt-4 pb-3">
-              <Link
-                href="/donate"
+              <a
+                href={GIVEBUTTER_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
                 className="block w-full text-center bg-[#dc2626] hover:bg-[#b91c1c] text-white font-bold px-5 py-3.5 rounded text-sm tracking-wide transition-colors"
               >
                 Donate
-              </Link>
+              </a>
             </div>
           </div>
         </div>

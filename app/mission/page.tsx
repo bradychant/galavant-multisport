@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { GIVEBUTTER_URL } from "../constants";
 
 export const metadata = {
   title: "Mission — Galavant Multisport",
@@ -112,7 +113,9 @@ export default function MissionPage() {
               See Events
             </a>
             <a
-              href="/donate"
+              href={GIVEBUTTER_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block bg-[#dc2626] hover:bg-[#b91c1c] text-white font-bold px-8 py-4 rounded text-sm tracking-wide transition-colors"
             >
               Donate
