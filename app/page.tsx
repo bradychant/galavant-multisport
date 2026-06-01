@@ -15,7 +15,7 @@ export default function Home() {
           <div className="flex flex-col items-center gap-5">
             <a
               href="/mission"
-              className="inline-flex items-center gap-2 text-[#dc2626] font-bold text-base sm:text-lg tracking-wide hover:gap-4 transition-all duration-200 border-b-2 border-[#dc2626] pb-1"
+              className="inline-flex items-center gap-2 text-[#2563eb] font-bold text-base sm:text-lg tracking-wide hover:gap-4 transition-all duration-200 border-b-2 border-[#2563eb] pb-1"
             >
               Read Timmy&apos;s story
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -13,7 +13,7 @@ interface Props {
 export default function HeroMarquee({ images }: Props) {
   if (images.length === 0) {
     return (
-      <div className="w-full h-[240px] sm:h-[350px] bg-zinc-100 flex items-center justify-center">
+      <div className="w-full h-[300px] sm:h-[350px] bg-zinc-100 flex items-center justify-center">
         <p className="text-zinc-400 text-xs tracking-widest uppercase">
           Add photos to /public/photos/slideshow/
         </p>
@@ -26,7 +26,7 @@ export default function HeroMarquee({ images }: Props) {
   const doubled = [...images, ...images];
 
   return (
-    <div className="marquee-container w-full h-[240px] sm:h-[350px] overflow-hidden">
+    <div className="marquee-container w-full h-[300px] sm:h-[350px] overflow-hidden">
       <div className="marquee-track flex h-full gap-2 w-max">
         {doubled.map((src, i) => (
           // eslint-disable-next-line @next/next/no-img-element
