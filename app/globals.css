@@ -25,8 +25,15 @@ body {
 
 .marquee-track {
   animation: marquee-scroll 40s linear infinite;
+  /* Hint the browser to put the track on its own GPU layer — keeps the
+     animation smooth on mobile and avoids paint-thrash flicker. */
+  will-change: transform;
 }
 
-.marquee-container:hover .marquee-track {
-  animation-play-state: paused;
+/* Only pause on actual hover (desktop). On touch devices a tap counts as
+   hover, which would freeze the marquee until the user tapped elsewhere. */
+@media (hover: hover) {
+  .marquee-container:hover .marquee-track {
+    animation-play-state: paused;
+  }
 }
