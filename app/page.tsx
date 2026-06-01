@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -13,48 +12,37 @@ export default function Home() {
         <Hero />
 
         {/* Impact teaser card */}
-        <section className="bg-white px-4 sm:px-6 py-12 sm:py-16">
-          <div className="max-w-5xl mx-auto">
+        <section className="bg-white px-4 sm:px-6 py-10 sm:py-12">
+          <div className="max-w-3xl mx-auto">
             <Link
               href="/impact"
-              className="group block overflow-hidden rounded-2xl border border-zinc-200 bg-white hover:border-[#2563eb]/40 hover:shadow-md transition-all duration-300"
+              className="group block rounded-2xl border border-zinc-200 bg-white hover:border-[#2563eb]/40 hover:shadow-md transition-all duration-300 p-6 sm:p-8"
             >
-              <div className="grid grid-cols-1 md:grid-cols-2">
-                {/* Image */}
-                <div className="relative aspect-[16/9] md:aspect-auto md:min-h-[320px] bg-zinc-100">
-                  <Image
-                    src="/photos/slideshow/IMG_0897.jpeg"
-                    alt=""
-                    fill
-                    sizes="(min-width: 768px) 50vw, 100vw"
-                    className="object-cover"
-                  />
-                </div>
-                {/* Text */}
-                <div className="p-7 sm:p-10 flex flex-col justify-center">
-                  <p className="text-[#2563eb] text-xs font-bold tracking-[0.4em] uppercase mb-4">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                <div>
+                  <p className="text-[#2563eb] text-xs font-bold tracking-[0.4em] uppercase mb-2">
                     Impact
                   </p>
-                  <h3 className="text-zinc-900 text-xl sm:text-2xl font-black leading-tight mb-6">
+                  <h3 className="text-zinc-900 text-base sm:text-lg font-black leading-tight">
                     The organizations we support and the initiatives that get
                     people outside in nature.
                   </h3>
-                  <div className="flex items-center gap-2 text-zinc-400 text-xs font-bold tracking-wide uppercase group-hover:text-zinc-700 transition-colors">
-                    See our impact
-                    <svg
-                      className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M17 8l4 4m0 0l-4 4m4-4H3"
-                      />
-                    </svg>
-                  </div>
+                </div>
+                <div className="flex items-center gap-2 text-zinc-400 text-xs font-bold tracking-wide uppercase group-hover:text-zinc-700 transition-colors shrink-0">
+                  See our impact
+                  <svg
+                    className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
                 </div>
               </div>
             </Link>
