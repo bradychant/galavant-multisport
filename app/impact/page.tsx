@@ -34,15 +34,29 @@ export default function ImpactPage() {
       <Navbar />
 
       <main className="flex-1 pt-20 sm:pt-28">
-        {/* Page header */}
-        <div className="bg-white border-b border-zinc-100 px-6 py-20 sm:py-28 text-center">
-          <p className="text-[#2563eb] text-xs font-bold tracking-[0.4em] uppercase mb-6">
-            Impact
-          </p>
-          <h1 className="text-zinc-900 text-3xl sm:text-4xl lg:text-5xl font-black leading-tight tracking-tight max-w-3xl mx-auto">
-            The organizations we support and the initiatives that get people
-            outside in nature.
-          </h1>
+        {/* Page header — image background */}
+        <div className="relative bg-zinc-900 border-b border-zinc-100 overflow-hidden">
+          <Image
+            src="/photos/slideshow/IMG_0871.jpeg"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+          {/* Dark overlay for legibility */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/55 to-black/70" />
+
+          {/* Content */}
+          <div className="relative px-6 py-24 sm:py-32 lg:py-40 text-center">
+            <p className="text-white/70 text-xs font-bold tracking-[0.4em] uppercase mb-6">
+              Impact
+            </p>
+            <h1 className="text-white text-3xl sm:text-4xl lg:text-5xl font-black leading-tight tracking-tight max-w-3xl mx-auto drop-shadow-lg">
+              The organizations we support and the initiatives that get people
+              outside in nature.
+            </h1>
+          </div>
         </div>
 
         {/* Featured Causes */}
@@ -111,14 +125,14 @@ export default function ImpactPage() {
         {/* Memorial Scholarship */}
         <section className="bg-zinc-50 border-t border-zinc-100 px-6 py-20 sm:py-24">
           <div className="max-w-3xl mx-auto">
-            {/* Image */}
-            <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden mb-12 bg-zinc-200">
+            {/* Portrait of Tim */}
+            <div className="relative aspect-[3/5] max-w-sm mx-auto rounded-2xl overflow-hidden mb-12 bg-zinc-200">
               <Image
-                src="/photos/slideshow/IMG_0897.jpeg"
+                src="/photos/slideshow/IMG_9230.jpeg"
                 alt="Timothy J. Chant"
                 fill
-                sizes="(min-width: 768px) 768px, 100vw"
-                className="object-cover"
+                sizes="(min-width: 640px) 384px, 100vw"
+                className="object-cover object-center"
               />
             </div>
 
