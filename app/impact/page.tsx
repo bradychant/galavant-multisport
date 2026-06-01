@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 export const metadata = {
   title: "Impact — Galavant Multisport",
   description:
-    "The organizations we support and the initiatives that get people outside in nature.",
+    "The programs and organizations Galavant Multisport supports, plus the Timothy J. Chant Memorial Scholarship at Westwood High School.",
 };
 
 const FEATURED = [
@@ -53,8 +53,7 @@ export default function ImpactPage() {
               Impact
             </p>
             <h1 className="text-white text-3xl sm:text-4xl lg:text-5xl font-black leading-tight tracking-tight max-w-3xl mx-auto drop-shadow-lg">
-              The organizations we support and the initiatives that get people
-              outside in nature.
+              Check out Galavant&apos;s impact!
             </h1>
           </div>
         </div>
