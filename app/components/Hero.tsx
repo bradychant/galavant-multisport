@@ -40,6 +40,9 @@ export default function Hero() {
         <p className="text-zinc-500 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
           Galavant Multisport exists to inspire movement, and appreciate nature&apos;s beauty every day.
         </p>
+        <p className="text-zinc-400 italic text-sm sm:text-base max-w-2xl mx-auto mt-6">
+          In Memory of Timothy J. Chant.
+        </p>
       </div>
     </section>
   );
