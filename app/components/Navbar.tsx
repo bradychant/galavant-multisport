@@ -10,7 +10,7 @@ const NAV_LINKS = [
   { name: "Mission", href: "/mission" },
   { name: "Impact", href: "/impact" },
   { name: "Events", href: "/events" },
-  { name: "Merch", href: "/merch" },
+  { name: "Gear", href: "/gear" },
 ];
 
 export default function Navbar() {

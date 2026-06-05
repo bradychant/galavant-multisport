@@ -23,8 +23,9 @@ const FEATURED = [
   },
   {
     name: "F.O.R.E.S.T. Program",
-    description: "More information coming soon.",
-    href: null,
+    description:
+      "Run by Vermont Huts & Trails, F.O.R.E.S.T. (Fostering Outdoor Recreation, Education, Sustainability, and Teamwork) provides free backcountry retreats to underserved youth and marginalized communities — including transportation, gear, and meals.",
+    href: "https://vermonthuts.org/forest-program/",
   },
 ];
 
