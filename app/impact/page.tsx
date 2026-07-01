@@ -14,20 +14,25 @@ const FEATURED = [
     description:
       "A nonprofit delivering life-changing surf therapy to children with special needs and their families. Since 2012, AWOW has served over 1,000 families through guided surf events that combine ocean therapy with yoga, art, music, and community.",
     href: "https://awalkonwater.org",
+    image: "/photos/slideshow/walkonwaterspringlake.JPG",
   },
   {
     name: "The Summit Squad",
     description:
       "A hiking program Timmy started in Westwood, MA. Each June, The Summit Squad brings a group of seniors on a hiking trip in New England.",
     href: null,
+    image: null,
   },
   {
     name: "F.O.R.E.S.T. Program",
     description:
       "Run by Vermont Huts & Trails, F.O.R.E.S.T. (Fostering Outdoor Recreation, Education, Sustainability, and Teamwork) provides free backcountry retreats to underserved youth and marginalized communities — including transportation, gear, and meals.",
     href: "https://vermonthuts.org/forest-program/",
+    image: null,
   },
 ];
+
+const SCHOLARSHIP_RECIPIENTS = [{ year: "2026", name: "Dante Dionisi" }];
 
 export default function ImpactPage() {
   return (
@@ -72,6 +77,17 @@ export default function ImpactPage() {
               {FEATURED.map((org, i) => {
                 const body = (
                   <>
+                    {org.image && (
+                      <div className="relative aspect-[16/10] rounded-xl overflow-hidden mb-5 bg-zinc-100">
+                        <Image
+                          src={org.image}
+                          alt={org.name}
+                          fill
+                          sizes="(min-width: 1024px) 33vw, 100vw"
+                          className="object-cover object-center"
+                        />
+                      </div>
+                    )}
                     <h3 className="text-zinc-900 text-xl font-black mb-3">
                       {org.name}
                     </h3>
@@ -158,6 +174,20 @@ export default function ImpactPage() {
               school environment—particularly through physical education,
               health classes, athletics, or related activities.
             </p>
+
+            {/* Recipients — subtle */}
+            <div className="mt-10 pt-6 border-t border-zinc-200 text-center">
+              <p className="text-zinc-400 text-xs font-bold tracking-[0.3em] uppercase mb-2">
+                Recipients
+              </p>
+              <ul className="text-zinc-500 text-sm">
+                {SCHOLARSHIP_RECIPIENTS.map((r) => (
+                  <li key={r.year}>
+                    {r.year} — {r.name}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </section>
       </main>
